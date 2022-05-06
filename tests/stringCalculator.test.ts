@@ -23,3 +23,9 @@ test('comma-separated numbers input should return the sum', () => {
     let result = stringCalculator.add(input);
     expect(result).toBe(10);
 });
+
+test('newline should be handled as a valid delimiter', () => {
+    let input = "1\n2";
+    let result = stringCalculator.add(input);
+    expect(result).toBe(3);
+})

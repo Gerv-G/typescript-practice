@@ -3,10 +3,10 @@ function add(numbers : string) : number {
   
   return numbers
     .split(",")
+    .flatMap(x => x.split("\n"))
     .map(x => parseInt(x))
     .reduce((x,y) => x+y, 0)
   
-
 }
 
 exports.add = add;
