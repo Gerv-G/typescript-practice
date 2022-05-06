@@ -11,3 +11,10 @@ test('single input should return itself', () => {
     let result = stringCalculator.add(input);
     expect(result).toBe(5);
 });
+
+test('two-number input should return the sum', () => {
+    let input = "1,2";
+    let result = stringCalculator.add(input);
+    expect(result).toBe(3);
+});
+
