@@ -1,7 +1,5 @@
-const world = 'world';
-
-export function hello(world: string = "world"): string {
-  return `Hello ${world}! `;
+function add(numbers : string) : number {
+  return 0;
 }
 
-console.log(hello("Gervin"));
+exports.add = add;
