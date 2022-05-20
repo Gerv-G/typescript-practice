@@ -1,6 +1,6 @@
 export class IllegalNegativeNumberError extends Error {
-    constructor() {
-        super("Illegal numbers are not allowed");
+    constructor(negativeNumbers: number[]) {
+        super("Negative numbers are not allowed: " + negativeNumbers);
         this.name = "IllegalNegativeNumberError";
 
         Object.setPrototypeOf(this, IllegalNegativeNumberError.prototype);

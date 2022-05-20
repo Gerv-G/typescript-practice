@@ -70,3 +70,11 @@ test('negative numbers should not be allowed', () => {
     const sut = () => stringCalculator.add(input);
     expect(sut).toThrow(IllegalNegativeNumberError)
 });
+
+test('negative numbers list should be in the error message', () => {
+    let input = "-1,2,3,-4"
+    const sut = () => stringCalculator.add(input);
+
+    expect(sut).toThrow(IllegalNegativeNumberError);
+    expect(sut).toThrow("Negative numbers are not allowed: -1,-4");
+});
