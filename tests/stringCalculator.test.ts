@@ -50,3 +50,15 @@ test('newline should be handled as a valid delimiter', () => {
     let result = stringCalculator.add(input);
     expect(result).toBe(3);
 })
+
+test('mixed newline and comma should be handled as valid delimiters', () => {
+    let input = "1\n2,3";
+    let result = stringCalculator.add(input);
+    expect(result).toBe(6);
+})
+
+test('adjacent newline and comma should be handled as valid delimiters', () => {
+    let input = "1\n,2,3,\n4";
+    let result = stringCalculator.add(input);
+    expect(result).toBe(10);
+})
