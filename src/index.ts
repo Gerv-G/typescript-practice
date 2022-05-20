@@ -5,6 +5,7 @@ function add(numbers : string) : number {
     .split(",")
     .flatMap(x => x.split("\n"))
     .map(x => parseInt(x))
+    .filter(x => !isNaN(x) && typeof(x) === 'number')
     .reduce((x,y) => x+y, 0)
   
 }

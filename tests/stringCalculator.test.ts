@@ -24,6 +24,27 @@ test('comma-separated numbers input should return the sum', () => {
     expect(result).toBe(10);
 });
 
+test('calculator should be able to handle unknown amount of numbers', () => {
+    let numberOfInputs = Math.floor(Math.random() * 10);
+    let arr = [];
+    while(numberOfInputs > 0) {
+        let element = Math.floor(Math.random() * 10).toString();
+        arr.push(element);
+        numberOfInputs--;
+    }
+    let inputStr = arr.reduce((x,y) => x + "," + y, "");
+
+    let result = stringCalculator.add(inputStr);
+
+    expect(typeof(result)).toBe('number');
+});
+
+test('NaN should be discared', () => {
+    let input = "#,&,@,%,1,2,3,,";
+    let result = stringCalculator.add(input);
+    expect(result).toBe(6);
+});
+
 test('newline should be handled as a valid delimiter', () => {
     let input = "1\n2";
     let result = stringCalculator.add(input);
