@@ -1,3 +1,5 @@
+import { IllegalNegativeNumberError } from '../src/illegalNegativeNumberError';
+
 const stringCalculator = require('../src/index');
 
 test('empty input should return 0', () => {
@@ -49,16 +51,22 @@ test('newline should be handled as a valid delimiter', () => {
     let input = "1\n2";
     let result = stringCalculator.add(input);
     expect(result).toBe(3);
-})
+});
 
 test('mixed newline and comma should be handled as valid delimiters', () => {
     let input = "1\n2,3";
     let result = stringCalculator.add(input);
     expect(result).toBe(6);
-})
+});
 
 test('adjacent newline and comma should be handled as valid delimiters', () => {
     let input = "1\n,2,3,\n4";
     let result = stringCalculator.add(input);
     expect(result).toBe(10);
-})
+});
+
+test('negative numbers should not be allowed', () => {
+    let input = "-1,2,3";
+    const sut = () => stringCalculator.add(input);
+    expect(sut).toThrow(IllegalNegativeNumberError)
+});
